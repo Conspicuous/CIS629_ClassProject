@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Goal Navigator</string>
+    <string name="test_d_text">Test %d</string>
+    <string name="CreateNewGoalActivityButton">Create New Goal</string>
+    <string name="UpdateGoalActivityButton">Update Goal</string>
+    <string name="DeleteGoalButton">Delete Goal</string>
+    <string name="UsersName">%s</string>
+    <string name="RewardsActivityButton">Badges</string>
+    <string name="CompanyName">SMART Goals</string>
+</resources>
