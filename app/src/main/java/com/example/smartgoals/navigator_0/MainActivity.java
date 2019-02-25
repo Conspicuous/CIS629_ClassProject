@@ -1,13 +1,13 @@
 package com.example.smartgoals.navigator_0;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
+
+    public int dummy_progress = 68;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,10 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setLogo(R.mipmap.ic_launcher);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
+        if (dummy_progress != 0) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
 
+        }
 
     }
 //
@@ -33,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
 //        return true;}
 
 
-
-    public void launchNewGoalCreatorActivity(View view) {}
-          //Create Goal--> Launch Data Entry Screen (Initial)
+    public void launchNewGoalCreatorActivity(View view) {
+    }
+    //Create Goal--> Launch Data Entry Screen (Initial)
 
 
 //        Intent intent = new Intent(this, com.example.olts.debug.Create_New_Goals.class);
@@ -43,11 +46,11 @@ public class MainActivity extends AppCompatActivity {
 //        startActivity(intent);
 
 
-
     public void launchGoalUpdateActivity(View view) {
         //UpdateGoal--> Launch Data Entry Screen
 
     }
 
-    public void deleteGoalActivity(View view){}
+    public void deleteGoalActivity(View view) {
+    }
 }

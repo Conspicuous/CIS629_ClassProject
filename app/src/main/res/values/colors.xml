@@ -10,6 +10,6 @@
     <color name="buttonBackgroundB">#e9800e</color>
     <color name="buttonBackgroundC">#e22b2a</color>
 
-
+    <color name="colorGoalProgressBar">#e71ed60e</color>
 
 </resources>

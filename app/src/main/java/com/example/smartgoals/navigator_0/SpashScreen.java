@@ -1,19 +1,15 @@
 package com.example.smartgoals.navigator_0;
+
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.PixelFormat;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,8 +28,8 @@ public class SpashScreen extends AppCompatActivity {
 //        setTheme(R.style.AppTheme_Launcher);
         setContentView(R.layout.activity_spash_screen);
 
-        final TextView splash_text = (TextView) findViewById(R.id.splash_text);
-        final ImageView splash_image = (ImageView) findViewById(R.id.splash_image);
+        final TextView splash_text = findViewById(R.id.splash_text);
+        final ImageView splash_image = findViewById(R.id.splash_image);
 
 
 //
@@ -54,30 +50,28 @@ public class SpashScreen extends AppCompatActivity {
                 matrix.setSaturation(animation.getAnimatedFraction());
                 ColorMatrixColorFilter filter = new ColorMatrixColorFilter(matrix);
                 splash_image.setColorFilter(filter);
-                ;
             }
         });
 
         animation.start();
-        ObjectAnimator textViewAnimatorY = ObjectAnimator.ofFloat(splash_text, "translationY",700f,0f);
+        ObjectAnimator textViewAnimatorY = ObjectAnimator.ofFloat(splash_text, "translationY", 700f, 0f);
 //        ObjectAnimator textViewAnimatorMove = ObjectAnimator.ofFloat(splash_text, "translationX", 700f, 0f);
-        ObjectAnimator splash_flip = ObjectAnimator.ofFloat(splash_image,"rotationY",180f,0f);
+        ObjectAnimator splash_flip = ObjectAnimator.ofFloat(splash_image, "rotationY", 180f, 0f);
         /*
-        * Translation Y values--> refer to end (top) position. 0f = the original position of the text view (
+         * Translation Y values--> refer to end (top) position. 0f = the original position of the text view (
          * or other view), as specified in the screen xml. t4 Note that this means the text is going to END
-        *
-        * */
+         *
+         * */
 //        textViewAnimatorY.setDuration(3000);
 //        textViewAnimatorMove.setDuration(3000);
 //        splash_flip.setDuration(3000);
-        AnimatorSet flip_image_move_text= new AnimatorSet();
+        AnimatorSet flip_image_move_text = new AnimatorSet();
         flip_image_move_text.setDuration(3000);
-        flip_image_move_text.playTogether(textViewAnimatorY,splash_flip);
+        flip_image_move_text.playTogether(textViewAnimatorY, splash_flip);
         flip_image_move_text.start();
 //        textViewAnimatorY.setDuration(3000);
 //        textViewAnimatorY.setInterpolator(new AccelerateDecelerateInterpolator());
 //        textViewAnimatorY.start();
-
 
 
         Thread thread = new Thread() {
@@ -101,5 +95,6 @@ public class SpashScreen extends AppCompatActivity {
             }
         };
         thread.start();
-    }}
+    }
+}
 

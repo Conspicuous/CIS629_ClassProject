@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".MainActivity">
+
+    <!--<android.support.v7.widget.Toolbar-->
+    <!--android:id="@+id/my_toolbar"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="?attr/actionBarSize"-->
+    <!--style="@style/HeaderBar"-->
+    <!--app:theme="@style/ThemeOverlay.AppCompat.ActionBar"-->
+    <!--app:popupTheme="@style/Widget.AppCompat.ActionBar"-->
+    <!--android:elevation="4dp"-->
+    <!--/>-->
+    <!--<Button-->
+    <!--android:id="@+id/DeleteGoal"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginEnd="8dp"-->
+    <!--android:layout_marginRight="8dp"-->
+    <!--android:layout_marginBottom="8dp"-->
+    <!--android:background="@color/buttonBackground"-->
+    <!--android:text="@string/delete_goal_button"-->
+    <!--android:textColor="@android:color/black"-->
+    <!--android:visibility="visible"-->
+    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--app:layout_constraintEnd_toEndOf="parent" />-->
+
+    <!--to do: TOP navigation-icon with smart goals logo on the right, progress bars, sql database temporary holder-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="367dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="44dp"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <FrameLayout
+            android:id="@+id/frameLayout2"
+            android:layout_width="296dp"
+
+            android:layout_height="120dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/frameLayout3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <fragment
+                android:id="@+id/ProgressBarFragment"
+                android:name="com.example.smartgoals.navigator_0.GoalProgressBarFragment"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp" />
+        </FrameLayout>
+
+        <FrameLayout
+
+            android:id="@+id/frameLayout3"
+            android:layout_width="296dp"
+            android:layout_height="120dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="169dp"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="117dp">
+
+            <fragment
+                android:id="@+id/SubtasksCompleteFragment"
+                android:name="com.example.smartgoals.navigator_0.SubtaskProgressBarFragment"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp" />
+        </FrameLayout>
+    </RelativeLayout>
+
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/mainmenu" />
+
+
+</android.support.constraint.ConstraintLayout>
