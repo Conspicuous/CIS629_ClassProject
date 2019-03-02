@@ -29,6 +29,14 @@
 
         </activity>
 
+        <activity android:name=".DataEntryScreen">
+
+        </activity>
+
+        <activity android:name=".RewardsScreen">
+
+        </activity>
+
 
     </application>
 

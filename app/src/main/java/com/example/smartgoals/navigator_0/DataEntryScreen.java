@@ -1,0 +1,135 @@
+//package com.example.smartgoals.navigator_0;
+//
+//import android.content.Context;
+//import android.os.Bundle;
+//import android.support.v7.app.AppCompatActivity;
+//
+//
+//public class DataEntryScreen extends AppCompatActivity {
+//
+//
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.dataentryscreen);
+//    }
+//}
+package com.example.smartgoals.navigator_0;
+
+import android.app.Activity;
+import android.database.Cursor;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.smartgoals.navigator_0.db.TaskDBAdapter;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+public class DataEntryScreen extends Activity implements View.OnClickListener {
+    Button btnSave;
+    EditText txtName;
+    TextView txtView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.dataentryscreen);
+        TaskDBAdapter db = new TaskDBAdapter(this);
+
+        btnSave = findViewById(R.id.btnSave);
+        txtName = findViewById(R.id.txtName);
+
+        try {
+            String destPath = "/data/data/" + getPackageName() + "/databases";
+            txtName.setText(destPath);
+            File f = new File(destPath);
+            if (!f.exists()) {
+                f.mkdirs();
+                f.createNewFile();
+                CopyDB(getBaseContext().getAssets().open("mydb"), new FileOutputStream(destPath + "/MyDB"));
+            }
+            db.open();
+
+            long id = db.insertTask(00, "Main Task", "", "", 0);
+            db.insertTask(id, "Sub Task 1", "", "", 1);
+            db.insertTask(id, "Sub Task 2", "", "", 0);
+            db.insertTask(id, "Sub Task 3", "", "", 0);
+
+            // Cursor c = db.getAllData();
+            Cursor c = db.getSubtasks(id);
+            txtName.setText("Total tasks: " + db.getTotalSubtaskCount(id) + " for the parentid of " + id);
+            if (c.moveToFirst()) {
+                do {
+                    DisplayTask(c);
+                } while (c.moveToNext());
+            }
+            db.close();
+        } catch (Exception e) {
+            Log.e("dataentry", e.getMessage());
+        }
+
+
+        // btnSave.setOnClickListener(  this);
+    }
+
+    public void CopyDB(InputStream inputStream,
+                       OutputStream outputStream) throws IOException {
+        //---copy 1K bytes at a time---
+        byte[] buffer = new byte[1024];
+        int length;
+        while ((length = inputStream.read(buffer)) > 0) {
+            outputStream.write(buffer, 0, length);
+        }
+        inputStream.close();
+        outputStream.close();
+    }
+
+    public void DisplayTask(Cursor c) {
+        try {
+            Toast.makeText(this,
+                    "id: " + c.getInt(0) + "\n" +
+                            "parentid: " + c.getInt(1) + "\n" +
+                            "taskname:  " + c.getString(2),
+                    Toast.LENGTH_LONG).show();
+
+        } catch (Exception e) {
+            Log.e("dataentry", e.getMessage());
+        }
+
+    }
+
+    public void onClick(View view) {
+        try {
+            switch (view.getId()) {
+                case R.id.btnSave:
+                    save();
+                    break;
+                case R.id.btn_dataentry:
+                    //showDataEntry(view);
+                    break;
+                // case R.id.btn_rewards:
+                // showRewards(view);
+                // break;
+            }
+        } catch (Exception e) {
+            Log.d("ActivityInterface", e.getMessage());
+        }
+    }
+
+    public void save() {
+        TaskDBAdapter taskdb = new TaskDBAdapter(this);
+        taskdb.open();
+        long id = taskdb.insertTask(0, "test", "0000", "0000", 0);
+
+        txtName.setText("WORKS " + id);
+    }
+}
