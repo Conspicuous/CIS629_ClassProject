@@ -22,9 +22,12 @@ public class GoalProgressBarFragment extends Fragment {
         View view = inflater.inflate(R.layout.goal_progress_bar_fragment, container, false);
         progressBar = view.findViewById(R.id.Goal_ProgressBar_PercentCompleted);
         progressBar.setProgress(TEST_PERCENT_COMPLETE);
-
+        String percentComplete = getString(R.string.Percent_Complete, TEST_PERCENT_COMPLETE);
+        String percent = getString(R.string.percent_sign);
+        String complete = getString(R.string.Complete);
         TextView textView = view.findViewById(R.id.Percent_Complete_Text);
-        textView.setText(String.format("%d", TEST_PERCENT_COMPLETE));
+        String conCat = percentComplete + percent + ' ' + complete;
+        textView.setText(conCat);
 //    TextView goalProgress = view.findViewById(R.id.Goal_Progress_Text);
 //    goalProgress.setText(R.string.Goal_Progress_Title);
 
@@ -33,6 +36,7 @@ public class GoalProgressBarFragment extends Fragment {
 }
 
 
+//TODO: Poll the data entry
 
 
 

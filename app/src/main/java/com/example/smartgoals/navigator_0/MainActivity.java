@@ -9,7 +9,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +34,11 @@ public class MainActivity extends AppCompatActivity {
 //Implement the basic bottom navigation view that starts the relevant activity
 
         //TODO: Configure buttons based on presence of goal
+        /*
+         * Use TaskDBAdapter
+         *
+         *
+         * */
 
         // FragmentManager fragmentManager = getSupportFragmentManager();
 
@@ -85,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-//TODO: Hide fragments in specific cases
+//TODO: Hide fragments and frame layout if no current goal
     //SEE PAGE 83
 
 
@@ -138,7 +142,6 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
 
-
-    public void deleteGoalActivity(View view) {
-    }
+    //TODO: Arrow with completion date (poll from the data entry screen)
 }
+

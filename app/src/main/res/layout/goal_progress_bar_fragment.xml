@@ -16,7 +16,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="27dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="71dp"
         android:layout_marginEnd="17dp"
 
         android:indeterminate="false"
@@ -39,10 +39,10 @@
         android:id="@+id/Percent_Complete_Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/Goal_ProgressBar_PercentCompleted"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="91dp"
-        android:layout_marginTop="153dp"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="-1dp"
         android:text="@string/Percent_Complete" />
 
 

@@ -1,6 +1,4 @@
 package com.example.smartgoals.navigator_0.db;
-
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -46,7 +44,9 @@ public class TaskDBAdapter {
         DBHelper.close();
     }
 
-    private ContentValues getContent(long parentid, String taskname, String expected_enddate, String completed_date, int completed_bool) {
+    private ContentValues getContent(long parentid, String taskname,
+                                     String expected_enddate,
+                                     String completed_date, int completed_bool) {
         ContentValues dbRow = new ContentValues();
         dbRow.put("parentid", parentid);
         dbRow.put("taskname", taskname);
@@ -57,6 +57,7 @@ public class TaskDBAdapter {
     }
 
     public long insertTask(String taskname) {
+
         return insertTask(0, taskname, "", "", 0);
     }
 
@@ -65,7 +66,7 @@ public class TaskDBAdapter {
     }
 
     public Cursor getSubtasks(long parentid) {
-        return db.rawQuery("select id, taskname, expected_enddate, completed_date, completed_bool from task where parentid=" + parentid, null);
+        return db.rawQuery("select * from task where parentid=" + parentid, null); //id, taskname, expected_enddate, completed_date, completed_bool
     }
 
     public Cursor getAllData() {
@@ -83,7 +84,10 @@ public class TaskDBAdapter {
         return db.delete(DATABASE_TABLE, "id=" + id, null) > 0;
     }
 
-    //---retrieves a particular contact---
+    public boolean deleteAllTasks() {
+        return db.delete(DATABASE_TABLE, null, null) > 0;
+    }
+
     public Cursor getTask(long id) throws SQLException {
         Cursor mCursor = db.rawQuery("select * from task where id =" + id + ";", null);
 
@@ -91,6 +95,38 @@ public class TaskDBAdapter {
             mCursor.moveToFirst();
         }
         return mCursor;
+    }
+
+    public Cursor getParentTask() throws SQLException {
+        Cursor mCursor = db.rawQuery("select * from task where   parentid=999;", null);
+
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
+
+    public Cursor getAllTasks(long id) throws SQLException {
+        Cursor mCursor = db.rawQuery("select distinct * from task where id =" + id + " or parentid=" + id + " order by id asc;", null);
+
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
+
+    public long getRecentParentid() throws SQLException {
+        long parentid = 0;
+        Cursor mCursor = db.rawQuery("select parentid from task where  parentid=999;", null);
+
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+            parentid = mCursor.getInt(0);
+        }
+        return parentid;
     }
 
     public long getParentid(String taskname) throws SQLException {
@@ -102,7 +138,6 @@ public class TaskDBAdapter {
             parentid = c.getInt(0);
         }
         return parentid;
-
     }
 
     public int getTotalSubtaskCount(long parentid) throws SQLException {
