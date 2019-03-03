@@ -4,16 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-
 public class MainActivity extends AppCompatActivity {
 
     public int dummy_progress = 68;
     protected Button btn_dataentry;
     protected Button btn_rewards;
+
+    Fragment fr;
+    FragmentManager fm;
+    FragmentTransaction fragmentTransaction;
     // TODO https://codelabs.developers.google.com/codelabs/android-navigation/#0
 
     @Override
@@ -21,12 +27,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
-
+//        fr = new GoalProgressBarFragment();
+//        fm = getSupportFragmentManager();
+//        fragmentTransaction = fm.beginTransaction();
+//        fragmentTransaction.add(R.id.Goal_ProgressBar_PercentCompleted,fr);
+//        fragmentTransaction.commit();
 //Implement the basic bottom navigation view that starts the relevant activity
 
         //TODO: Configure buttons based on presence of goal
 
         // FragmentManager fragmentManager = getSupportFragmentManager();
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener
                 (new BottomNavigationView.OnNavigationItemSelectedListener() {

@@ -5,11 +5,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 public class GoalProgressBarFragment extends Fragment {
 
     private static final int TEST_PERCENT_COMPLETE = 68;
-
+    private ProgressBar progressBar;
     public GoalProgressBarFragment() {
     }
 
@@ -17,8 +19,12 @@ public class GoalProgressBarFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 //     View view = inflater.inflate(R.layout.fragment_progress_bars, container, false);
-        View view = inflater.inflate(R.layout.fragment_progress_bars, container, false);
+        View view = inflater.inflate(R.layout.goal_progress_bar_fragment, container, false);
+        progressBar = view.findViewById(R.id.Goal_ProgressBar_PercentCompleted);
+        progressBar.setProgress(TEST_PERCENT_COMPLETE);
 
+        TextView textView = view.findViewById(R.id.Percent_Complete_Text);
+        textView.setText(String.format("%d", TEST_PERCENT_COMPLETE));
 //    TextView goalProgress = view.findViewById(R.id.Goal_Progress_Text);
 //    goalProgress.setText(R.string.Goal_Progress_Title);
 
