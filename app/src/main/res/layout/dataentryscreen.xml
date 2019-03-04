@@ -1,219 +1,227 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <!--
-    <EditText
-        android:id="@+id/txt_subtask5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="74dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="53dp"
-        android:ems="10"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/btnSave"
-        app:layout_constraintEnd_toStartOf="@+id/cb_subtask5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_subtask4" />
 
-    <CheckedTextView
-        android:id="@+id/cb_subtask5"
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ImageView
+            android:id="@+id/header"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:scaleType="fitCenter"
+            android:src="@drawable/header" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <TextView
+            android:id="@+id/txtView"
+            android:layout_column="2"
+            android:text="Please complete all fields" />
+    </TableRow>
+
+    <TableRow>
+
+        <EditText
+            android:id="@+id/txt_task0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:width="400px"
+            android:text="" />
+
+
+        <CheckBox
+            android:id="@+id/cb_task0"
+            android:layout_column="3"
+            android:width="20px"
+            android:enabled="false" />
+
+        <TextView
+            android:id="@+id/id_task0"
+            android:layout_column="3"
+            android:text="0"
+            android:visibility="invisible" />
+        <!--
+        <EditText  android:id="@+id/dte_expectedDate"  android:inputType="date"    android:layout_column="3" />
+            -->
+    </TableRow>
+
+    <TableRow>
+        <!-- 1 -->
+        <TextView
+            android:id="@+id/lbl_task"
+            android:layout_column="1"
+            android:text="1" />
+
+        <EditText
+            android:id="@+id/txt_task1"
+            android:layout_column="2"
+            android:width="400px"
+            android:inputType="text" />
+
+        <CheckBox
+            android:id="@+id/cb_task1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="3" />
+
+        <TextView
+            android:id="@+id/id_task1"
+            android:layout_column="3"
+            android:width="45px"
+            android:text="0"
+            android:visibility="invisible" />
+    </TableRow>
+
+    <!-- 2 -->
+    <TableRow>
+
+        <TextView
+            android:layout_column="1"
+            android:text="2" />
+
+        <EditText
+            android:id="@+id/txt_task2"
+            android:layout_column="2"
+            android:width="400px"
+            android:inputType="text" />
+
+        <CheckBox
+            android:id="@+id/cb_task2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="3" />
+
+        <TextView
+            android:id="@+id/id_task2"
+            android:layout_column="3"
+            android:width="45px"
+            android:visibility="invisible" />
+    </TableRow>
+
+    <!-- 3-->
+    <TableRow>
+
+        <TextView
+            android:layout_column="1"
+            android:text="3" />
+
+        <EditText
+            android:id="@+id/txt_task3"
+            android:layout_column="2"
+            android:width="400px"
+            android:inputType="text" />
+
+        <CheckBox
+            android:id="@+id/cb_task3"
+            android:layout_column="3" />
+
+        <TextView
+            android:id="@+id/id_task3"
+            android:visibility="invisible" />
+
+    </TableRow>
+
+    <!-- 4 -->
+    <TableRow>
+
+        <TextView
+            android:layout_column="1"
+            android:text="4" />
+
+        <EditText
+            android:id="@+id/txt_task4"
+            android:layout_column="2"
+            android:width="400px"
+            android:inputType="text" />
+
+        <CheckBox
+            android:id="@+id/cb_task4"
+            android:layout_column="3"
+            android:width="20px" />
+
+        <TextView
+            android:id="@+id/id_task4"
+            android:visibility="invisible" />
+
+    </TableRow>
+
+    <!-- 5 -->
+    <TableRow>
+
+        <TextView
+            android:layout_column="1"
+            android:text="5" />
+
+        <EditText
+            android:id="@+id/txt_task5"
+            android:layout_column="2"
+            android:width="400px"
+            android:inputType="text" />
+
+        <CheckBox
+            android:id="@+id/cb_task5"
+            android:layout_column="3"
+            android:width="20px" />
+
+        <TextView
+            android:id="@+id/id_task5"
+            android:visibility="invisible" />
+
+    </TableRow>
+
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_column="2"
+            android:onClick="save"
+            android:text="Save" />
+    </TableRow>
+
+    <TableRow>
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_column="2"
+            android:onClick="delete"
+            android:text="Delete All" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <Button
+            android:id="@+id/btn_rewards"
+            android:layout_column="2"
+            android:onClick="showRewards"
+            android:text="Rewards" />
+
+    </TableRow>
+
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="57dp"
-        android:layout_marginBottom="203dp"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txt_subtask5"
-        app:layout_constraintTop_toBottomOf="@+id/cb_subtask4" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/mainmenu" />
 
-    <EditText
-        android:id="@+id/txt_subtask4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="74dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="18dp"
-        android:ems="10"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/txt_subtask5"
-        app:layout_constraintEnd_toStartOf="@+id/cb_subtask4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_subtask3" />
-
-    <CheckedTextView
-        android:id="@+id/cb_subtask4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="57dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/cb_subtask5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txt_subtask4"
-        app:layout_constraintTop_toBottomOf="@+id/cb_subtask3" />
-
-    <EditText
-        android:id="@+id/txt_subtask3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="74dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="19dp"
-        android:ems="10"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/txt_subtask4"
-        app:layout_constraintEnd_toStartOf="@+id/cb_subtask3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_subtask2" />
-
-    <CheckedTextView
-        android:id="@+id/cb_subtask3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="57dp"
-        android:layout_marginBottom="21dp"
-        app:layout_constraintBottom_toTopOf="@+id/cb_subtask4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txt_subtask3"
-        app:layout_constraintTop_toBottomOf="@+id/cb_subtask2" />
-
-    <EditText
-        android:id="@+id/txt_subtask2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="74dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="17dp"
-        android:ems="10"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/txt_subtask3"
-        app:layout_constraintEnd_toStartOf="@+id/cb_subtask2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_subtask1" />
-
-    <CheckedTextView
-        android:id="@+id/cb_subtask2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="57dp"
-        android:layout_marginBottom="19dp"
-        app:layout_constraintBottom_toTopOf="@+id/cb_subtask3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txt_subtask2"
-        app:layout_constraintTop_toBottomOf="@+id/cb_subtask1" />
-
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="100dp"
-        android:text="Save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/txt_subtask5"
-        app:layout_constraintTop_toBottomOf="@+id/txt_subtask5" />
-
-    <EditText
-        android:id="@+id/txt_mainTask"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginBottom="18dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Main Goal"
-        app:layout_constraintBottom_toTopOf="@+id/dte_expectedDate"
-        app:layout_constraintStart_toStartOf="@+id/lbl_maintask"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_maintask" />
-
-    <CheckedTextView
-        android:id="@+id/cb_subtask1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="229dp"
-        android:layout_marginEnd="57dp"
-        android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/cb_subtask2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txt_subtask1"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/dte_expectedDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:ems="10"
-        android:inputType="date"
-        app:layout_constraintBottom_toTopOf="@+id/lbl_subtask"
-        app:layout_constraintStart_toStartOf="@+id/txt_mainTask"
-        app:layout_constraintTop_toBottomOf="@+id/txt_mainTask" />
-
-    <TextView
-        android:id="@+id/lbl_subtask"
-        android:layout_width="124dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
-        android:text="SubTasks"
-        app:layout_constraintBottom_toTopOf="@+id/txt_subtask1"
-        app:layout_constraintStart_toStartOf="@+id/txt_subtask1"
-        app:layout_constraintTop_toBottomOf="@+id/dte_expectedDate" />
-
-    <EditText
-        android:id="@+id/txt_subtask1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="74dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="22dp"
-        android:ems="10"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/txt_subtask2"
-        app:layout_constraintEnd_toStartOf="@+id/cb_subtask1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_subtask" />
-
-    <TextView
-        android:id="@+id/lbl_maintask"
-        android:layout_width="188dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="74dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="17dp"
-        android:text="Main Task"
-        app:layout_constraintBottom_toTopOf="@+id/txt_mainTask"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <include
-        layout="@layout/reusablebuttons"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSave"
-        />
-        -->
-
-    <EditText
-        android:id="@+id/txtName"
-        android:layout_width="336dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="72dp"
-        android:ems="10"
-        android:inputType="textShortMessage"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="311dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:onClick="save"
-        android:text="Ignore Me"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="@+id/txtName"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/txtName"
-        app:layout_constraintTop_toBottomOf="@+id/txtName" />
-</android.support.constraint.ConstraintLayout>
+</TableLayout>

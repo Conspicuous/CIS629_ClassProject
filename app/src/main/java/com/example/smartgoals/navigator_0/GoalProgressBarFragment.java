@@ -10,9 +10,17 @@ import android.widget.TextView;
 
 public class GoalProgressBarFragment extends Fragment {
 
-    private static final int TEST_PERCENT_COMPLETE = 68;
     private ProgressBar progressBar;
     public GoalProgressBarFragment() {
+    }
+
+    public static GoalProgressBarFragment newInstance(int GoalProgressPercent) {
+
+        GoalProgressBarFragment G = new GoalProgressBarFragment();
+        Bundle args = new Bundle();
+        args.putInt("GoalProgressPercent", GoalProgressPercent);
+        G.setArguments(args);
+        return G;
     }
 
     @Override
@@ -20,9 +28,13 @@ public class GoalProgressBarFragment extends Fragment {
 
 //     View view = inflater.inflate(R.layout.fragment_progress_bars, container, false);
         View view = inflater.inflate(R.layout.goal_progress_bar_fragment, container, false);
+
+        Bundle args = getArguments();
+        int PercentComplete = args.getInt("GoalProgressPercent", 0);
         progressBar = view.findViewById(R.id.Goal_ProgressBar_PercentCompleted);
-        progressBar.setProgress(TEST_PERCENT_COMPLETE);
-        String percentComplete = getString(R.string.Percent_Complete, TEST_PERCENT_COMPLETE);
+        //progressBar.setProgress(TEST_PERCENT_COMPLETE);
+        progressBar.setProgress(PercentComplete);
+        String percentComplete = getString(R.string.Percent_Complete, PercentComplete);
         String percent = getString(R.string.percent_sign);
         String complete = getString(R.string.Complete);
         TextView textView = view.findViewById(R.id.Percent_Complete_Text);
